@@ -67,7 +67,7 @@ void main() {
     UART_Config_TXSTA(txConfig);
     RCSTA=0X90;
     UART_Config uartConfig;
-    uartConfig.baud_rate = 57600; // Set baud rate to 57600
+    uartConfig.baud_rate = 9600; // Set baud rate to 9600
     uartConfig.data_bits = 8; // Set data bits to 8
     uartConfig.stop_bits = 1; // Set stop bits to 1
 

@@ -18006,14 +18006,14 @@ void UART_Init(UART_Config config) {
 typedef struct {
     unsigned int txEnable : 1;
     unsigned int syncMode : 1;
-    unsigned int highBoadRate : 1;
+    unsigned int highSpeed : 1;
 } TXSTA_Config;
 
 
 void UART_Config_TXSTA(TXSTA_Config config) {
     TXSTAbits.TXEN = config.txEnable;
     TXSTAbits.SYNC = config.syncMode;
-    TXSTAbits.BRGH = config.highBoadRate;
+    TXSTAbits.BRGH = config.highSpeed;
 
 }
 
@@ -18038,13 +18038,13 @@ void main() {
     TXSTA_Config txConfig;
     txConfig.txEnable = 1;
     txConfig.syncMode = 0;
-    txConfig.highBoadRate = 1;
+    txConfig.highSpeed = 1;
 
 
     UART_Config_TXSTA(txConfig);
     RCSTA=0X90;
     UART_Config uartConfig;
-    uartConfig.baud_rate = 57600;
+    uartConfig.baud_rate = 9600;
     uartConfig.data_bits = 8;
     uartConfig.stop_bits = 1;
 

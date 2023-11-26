@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Sun Nov 26 09:57:56 2023
+                                                                                               Sun Nov 26 19:28:42 2023
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	18F4580
@@ -215,7 +215,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    200                           ;uartStructMain.c: 63:     txConfig.syncMode = 0;
    201  0006B4  9218               	bcf	main@txConfig^0,1,c
    202  0006B6                     
-   203                           ;uartStructMain.c: 64:     txConfig.highBoadRate = 1;
+   203                           ;uartStructMain.c: 64:     txConfig.highSpeed = 1;
    204  0006B6  8418               	bsf	main@txConfig^0,2,c
    205  0006B8                     
    206                           ;uartStructMain.c: 67:     UART_Config_TXSTA(txConfig);
@@ -227,10 +227,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    212  0006C0  6EAB               	movwf	171,c	;volatile
    213  0006C2                     
    214                           ;uartStructMain.c: 69:     UART_Config uartConfig;;uartStructMain.c: 70:     uartConfig.
-      +                          baud_rate = 57600;
-   215  0006C2  0EE1               	movlw	225
+      +                          baud_rate = 9600;
+   215  0006C2  0E25               	movlw	37
    216  0006C4  6E1A               	movwf	(main@uartConfig+1)^0,c
-   217  0006C6  0E00               	movlw	0
+   217  0006C6  0E80               	movlw	128
    218  0006C8  6E19               	movwf	main@uartConfig^0,c
    219  0006CA                     
    220                           ;uartStructMain.c: 71:     uartConfig.data_bits = 8;
@@ -657,7 +657,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    641  0007B8  98AC               	bcf	172,4,c	;volatile
    642  0007BA                     u67:
    643                           
-   644                           ;uartStructMain.c: 39:     TXSTAbits.BRGH = config.highBoadRate;
+   644                           ;uartStructMain.c: 39:     TXSTAbits.BRGH = config.highSpeed;
    645  0007BA  A401               	btfss	UART_Config_TXSTA@config^0,2,c
    646  0007BC  D002               	bra	u75
    647  0007BE  84AC               	bsf	172,2,c	;volatile
@@ -1013,7 +1013,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Sun Nov 26 09:57:56 2023
+Symbol Table                                                                                   Sun Nov 26 19:28:42 2023
 
                              l20 07C4                               l31 0766  
                              l23 07C6                               l17 0760  

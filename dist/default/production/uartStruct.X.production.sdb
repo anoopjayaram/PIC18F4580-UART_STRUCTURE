@@ -97,7 +97,7 @@
 [v main@uartConfig uartConfig `S24  1 a 4 24 ]
 [s S29 . 1 `uc 1 txEnable 1 0 :1:0 
 `uc 1 syncMode 1 0 :1:1 
-`uc 1 highBoadRate 1 0 :1:2 
+`uc 1 highSpeed 1 0 :1:2 
 ]
 "61
 [v main@txConfig txConfig `S29  1 a 1 23 ]
@@ -138,7 +138,7 @@
 {
 [s S29 . 1 `uc 1 txEnable 1 0 :1:0 
 `uc 1 syncMode 1 0 :1:1 
-`uc 1 highBoadRate 1 0 :1:2 
+`uc 1 highSpeed 1 0 :1:2 
 ]
 [v UART_Config_TXSTA@config config `S29  1 a 1 wreg ]
 [v UART_Config_TXSTA@config config `S29  1 a 1 wreg ]

@@ -9,7 +9,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 uartStructMain.c
 [; ;uartStructMain.c: 29: typedef struct {
 [s S1090 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1090 . txEnable syncMode highBoadRate ]
+[n S1090 . txEnable syncMode highSpeed ]
 "29001 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 29001:     struct {
 [s S942 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1329,7 +1329,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uartStructMain.c: 38:     TXSTAbits.SYNC = config.syncMode;
 [e = . . _TXSTAbits 0 4 . _config 1 ]
 "39
-[; ;uartStructMain.c: 39:     TXSTAbits.BRGH = config.highBoadRate;
+[; ;uartStructMain.c: 39:     TXSTAbits.BRGH = config.highSpeed;
 [e = . . _TXSTAbits 0 2 . _config 2 ]
 "41
 [; ;uartStructMain.c: 41: }
@@ -1427,7 +1427,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uartStructMain.c: 63:     txConfig.syncMode = 0;
 [e = . _txConfig 1 -> -> 0 `i `uc ]
 "64
-[; ;uartStructMain.c: 64:     txConfig.highBoadRate = 1;
+[; ;uartStructMain.c: 64:     txConfig.highSpeed = 1;
 [e = . _txConfig 2 -> -> 1 `i `uc ]
 "67
 [; ;uartStructMain.c: 67:     UART_Config_TXSTA(txConfig);
@@ -1439,8 +1439,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uartStructMain.c: 69:     UART_Config uartConfig;
 [v _uartConfig `S1088 ~T0 @X0 1 a ]
 "70
-[; ;uartStructMain.c: 70:     uartConfig.baud_rate = 57600;
-[e = . _uartConfig 0 -> -> 57600 `l `ui ]
+[; ;uartStructMain.c: 70:     uartConfig.baud_rate = 9600;
+[e = . _uartConfig 0 -> -> 9600 `i `ui ]
 "71
 [; ;uartStructMain.c: 71:     uartConfig.data_bits = 8;
 [e = . _uartConfig 1 -> -> 8 `i `uc ]
