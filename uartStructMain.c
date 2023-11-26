@@ -19,7 +19,6 @@ typedef struct {
 } UART_Config;
 
 
-
 // Initialize UART based on configuration structure
 void UART_Init(UART_Config config) {
     // Set the baud rate
@@ -32,6 +31,12 @@ typedef struct {
     unsigned int highSpeed : 1;
 } TXSTA_Config;
 
+typedef struct {
+    unsigned int SerialPortEnable : 1; // Bit 0: Transmit Enable
+    unsigned int continiousReciveEnable : 1; // Bit 4: Sync/Async mode
+   
+} RCSTA_Config;
+
 // Function to configure TXSTA using the structure
 void UART_Config_TXSTA(TXSTA_Config config) {
     TXSTAbits.TXEN = config.txEnable; // Set Transmit Enable bit
@@ -39,6 +44,14 @@ void UART_Config_TXSTA(TXSTA_Config config) {
     TXSTAbits.BRGH = config.highSpeed; //Set high speed
     // Configure other TXSTA bits similarly
 }
+// Function to configure RCSTA using the structure
+void UART_Config_RCSTA(RCSTA_Config config) {
+    RCSTAbits.SPEN = config.SerialPortEnable; 
+    RCSTAbits.CREN = config.continiousReciveEnable; // 
+  
+ 
+}
+
 // Function to wait until TXIF flag is set
 void UART_WaitForTxComplete() {
     while (!PIR1bits.TXIF) {
@@ -62,10 +75,16 @@ void main() {
     txConfig.txEnable = 1; // Enable transmit
     txConfig.syncMode = 0; // Async mode
     txConfig.highSpeed = 1;
+    
+    RCSTA_Config rxConfig; 
+    rxConfig.SerialPortEnable = 1; // Enable transmit
+    rxConfig.continiousReciveEnable = 1; // Async mode
 
 
     UART_Config_TXSTA(txConfig);
-    RCSTA=0X90;
+    UART_Config_RCSTA(rxConfig);
+    
+    
     UART_Config uartConfig;
     uartConfig.baud_rate = 9600; // Set baud rate to 9600
     uartConfig.data_bits = 8; // Set data bits to 8
@@ -73,17 +92,16 @@ void main() {
 
     // Initialize UART with the configured parameters
     UART_Init(uartConfig);
-
+   
     // Your main code here
     while (1) {
         // Wait for TXIF flag before transmitting data
         UART_WaitForTxComplete();
 
         // Transmit data
-        TXREG = 'W'; // Transmit character 'A'
-        UART_TransmitString("Hi all");
+        
+        UART_TransmitString("Hello World\r\n ");
 
-        // Your additional logic here
         __delay_ms(1000); // Delay for 1 second
     }
 }
