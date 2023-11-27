@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\uartStruct.X.production.sym \
   --cmf=dist/default/production\uartStruct.X.production.cmf -z -Q18F4580 \
-  -oC:\Users\anoop\AppData\Local\Temp\xcAsbt8.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\anoop\AppData\Local\Temp\xcAsag0.6 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/uartStruct.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=060h-05FFh -pstack=STACK \
   -ACODE=00h-07FFFh -ACONST=00h-07FFFh -ASMALLCONST=0600h-06FFhx122 \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\anoop\AppData\Local\Temp\xcAsbt8.o \
+  C:\Users\anoop\AppData\Local\Temp\xcAsag0.o \
   dist/default/production\uartStruct.X.production.o 
 
 Object code version is 3.11
@@ -32,7 +32,7 @@ Machine type is 18F4580
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\anoop\AppData\Local\Temp\xcAsbt8.o
+C:\Users\anoop\AppData\Local\Temp\xcAsag0.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0
@@ -352,15 +352,15 @@ uart.c
 		_UART_Init     		CODE           	0766	0000	64
 		_UART_Config_RCSTA		CODE           	07C8	0000	24
 		_UART_Config_TXSTA		CODE           	07A6	0000	34
-
-uart.c estimated size: 122
-
-uartStructMain.c
-		_main          		CODE           	06B6	0000	110
 		_UART_WaitForTxComplete		CODE           	07E0	0000	16
 		_UART_TransmitString		CODE           	0724	0000	66
 
-uartStructMain.c estimated size: 192
+uart.c estimated size: 204
+
+uartStructMain.c
+		_main          		CODE           	06B6	0000	110
+
+uartStructMain.c estimated size: 110
 
 shared
 		__initialization		CODE           	07F0	0000	1

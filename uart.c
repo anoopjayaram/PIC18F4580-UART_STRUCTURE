@@ -22,3 +22,20 @@ void UART_Config_RCSTA(RCSTA_Config config) {
   
  
 }
+// Function to wait until TXIF flag is set
+void UART_WaitForTxComplete() {
+    while (!PIR1bits.TXIF) {
+        continue; // Wait until TXIF flag is set
+    }
+}
+// Function to transmit a string via UART
+void UART_TransmitString(const char* data) {
+    while (*data != '\0') {
+        // Wait for TXIF flag indicating the transmit buffer is empty
+        while (!TXSTAbits.TRMT) {
+            continue;
+        }
+        TXREG = *data;
+        data++; 
+    }
+}

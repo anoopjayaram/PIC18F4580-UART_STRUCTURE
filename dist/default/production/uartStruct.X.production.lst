@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Mon Nov 27 12:20:35 2023
+                                                                                               Mon Nov 27 12:26:09 2023
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	18F4580
@@ -66,12 +66,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
     52                           ; Code-generator required, PIC18F4580 Definitions
     53                           ; 
     54                           ; SFR Addresses
-    55  0000                     _RCSTAbits	set	4011
-    56  0000                     _SPBRG	set	4015
-    57  0000                     _TRISC	set	3988
-    58  0000                     _TXREG	set	4013
-    59  0000                     _TXSTAbits	set	4012
-    60  0000                     _PIR1bits	set	3998
+    55  0000                     _TXREG	set	4013
+    56  0000                     _PIR1bits	set	3998
+    57  0000                     _RCSTAbits	set	4011
+    58  0000                     _TXSTAbits	set	4012
+    59  0000                     _SPBRG	set	4015
+    60  0000                     _TRISC	set	3988
     61                           
     62                           	psect	smallconst
     63  000600                     __psmallconst:
@@ -183,7 +183,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    169 ;;
    170 ;; *************** function _main *****************
    171 ;; Defined at:
-   172 ;;		line 27 in file "uartStructMain.c"
+   172 ;;		line 11 in file "uartStructMain.c"
    173 ;; Parameters:    Size  Location     Type
    174 ;;		None
    175 ;; Auto vars:     Size  Location     Type
@@ -222,69 +222,69 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    208  0006B6                     _main:
    209                           	callstack 29
    210  0006B6                     
-   211                           ;uartStructMain.c: 28:      TRISC=0X00;
+   211                           ;uartStructMain.c: 12:      TRISC=0X00;
    212  0006B6  0E00               	movlw	0
    213  0006B8  6E94               	movwf	148,c	;volatile
    214  0006BA                     
-   215                           ;uartStructMain.c: 29:     TXSTA_Config txConfig;;uartStructMain.c: 30:     txConfig.txE
+   215                           ;uartStructMain.c: 13:     TXSTA_Config txConfig;;uartStructMain.c: 14:     txConfig.txE
       +                          nable = 1;
    216  0006BA  8017               	bsf	main@txConfig^0,0,c
    217  0006BC                     
-   218                           ;uartStructMain.c: 31:     txConfig.syncMode = 0;
+   218                           ;uartStructMain.c: 15:     txConfig.syncMode = 0;
    219  0006BC  9217               	bcf	main@txConfig^0,1,c
    220  0006BE                     
-   221                           ;uartStructMain.c: 32:     txConfig.highSpeed = 1;
+   221                           ;uartStructMain.c: 16:     txConfig.highSpeed = 1;
    222  0006BE  8417               	bsf	main@txConfig^0,2,c
    223  0006C0                     
-   224                           ;uartStructMain.c: 34:     RCSTA_Config rxConfig;;uartStructMain.c: 35:     rxConfig.Ser
+   224                           ;uartStructMain.c: 18:     RCSTA_Config rxConfig;;uartStructMain.c: 19:     rxConfig.Ser
       +                          ialPortEnable = 1;
    225  0006C0  8016               	bsf	main@rxConfig^0,0,c
    226  0006C2                     
-   227                           ;uartStructMain.c: 36:     rxConfig.continiousReciveEnable = 1;
+   227                           ;uartStructMain.c: 20:     rxConfig.continiousReciveEnable = 1;
    228  0006C2  8216               	bsf	main@rxConfig^0,1,c
    229  0006C4                     
-   230                           ;uartStructMain.c: 39:     UART_Config_TXSTA(txConfig);
+   230                           ;uartStructMain.c: 23:     UART_Config_TXSTA(txConfig);
    231  0006C4  5017               	movf	main@txConfig^0,w,c
    232  0006C6  ECD3  F003         	call	_UART_Config_TXSTA
    233  0006CA                     
-   234                           ;uartStructMain.c: 40:     UART_Config_RCSTA(rxConfig);
+   234                           ;uartStructMain.c: 24:     UART_Config_RCSTA(rxConfig);
    235  0006CA  5016               	movf	main@rxConfig^0,w,c
    236  0006CC  ECE4  F003         	call	_UART_Config_RCSTA
    237                           
-   238                           ;uartStructMain.c: 43:     UART_Config uartConfig;;uartStructMain.c: 44:     uartConfig.
+   238                           ;uartStructMain.c: 27:     UART_Config uartConfig;;uartStructMain.c: 28:     uartConfig.
       +                          baud_rate = 9600UL;
    239  0006D0  0E25               	movlw	37
    240  0006D2  6E19               	movwf	(main@uartConfig+1)^0,c
    241  0006D4  0E80               	movlw	128
    242  0006D6  6E18               	movwf	main@uartConfig^0,c
    243                           
-   244                           ;uartStructMain.c: 45:     uartConfig.data_bits = 8;
+   244                           ;uartStructMain.c: 29:     uartConfig.data_bits = 8;
    245  0006D8  0E08               	movlw	8
    246  0006DA  6E1A               	movwf	(main@uartConfig+2)^0,c
    247                           
-   248                           ;uartStructMain.c: 46:     uartConfig.stop_bits = 1;
+   248                           ;uartStructMain.c: 30:     uartConfig.stop_bits = 1;
    249  0006DC  0E01               	movlw	1
    250  0006DE  6E1B               	movwf	(main@uartConfig+3)^0,c
    251  0006E0                     
-   252                           ;uartStructMain.c: 49:     UART_Init(uartConfig);
+   252                           ;uartStructMain.c: 33:     UART_Init(uartConfig);
    253  0006E0  C018  F00E         	movff	main@uartConfig,UART_Init@config
    254  0006E4  C019  F00F         	movff	main@uartConfig+1,UART_Init@config+1
    255  0006E8  C01A  F010         	movff	main@uartConfig+2,UART_Init@config+2
    256  0006EC  C01B  F011         	movff	main@uartConfig+3,UART_Init@config+3
    257  0006F0  ECB3  F003         	call	_UART_Init	;wreg free
-   258  0006F4                     l842:
+   258  0006F4                     l844:
    259                           
-   260                           ;uartStructMain.c: 54:         UART_WaitForTxComplete();
+   260                           ;uartStructMain.c: 38:         UART_WaitForTxComplete();
    261  0006F4  ECF0  F003         	call	_UART_WaitForTxComplete	;wreg free
    262  0006F8                     
-   263                           ;uartStructMain.c: 58:         UART_TransmitString("Hello World\r\n ");
+   263                           ;uartStructMain.c: 42:         UART_TransmitString("Hello World\r\n ");
    264  0006F8  0E01               	movlw	low STR_1
    265  0006FA  6E01               	movwf	UART_TransmitString@data^0,c
    266  0006FC  0E06               	movlw	high STR_1
    267  0006FE  6E02               	movwf	(UART_TransmitString@data+1)^0,c
    268  000700  EC92  F003         	call	_UART_TransmitString	;wreg free
    269  000704                     
-   270                           ;uartStructMain.c: 60:         _delay((unsigned long)((1000)*(20000000UL/4000.0)));
+   270                           ;uartStructMain.c: 44:         _delay((unsigned long)((1000)*(20000000UL/4000.0)));
    271  000704  0E1A               	movlw	26
    272  000706  6E15               	movwf	(??_main+1)^0,c
    273  000708  0E5E               	movlw	94
@@ -298,14 +298,14 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    281  000716  2E15               	decfsz	(??_main+1)^0,f,c
    282  000718  D7FA               	bra	u177
    283  00071A  D000               	nop2	
-   284  00071C  EF7A  F003         	goto	l842
+   284  00071C  EF7A  F003         	goto	l844
    285  000720  EF00  F000         	goto	start
    286  000724                     __end_of_main:
    287                           	callstack 0
    288                           
    289 ;; *************** function _UART_WaitForTxComplete *****************
    290 ;; Defined at:
-   291 ;;		line 11 in file "uartStructMain.c"
+   291 ;;		line 26 in file "uart.c"
    292 ;; Parameters:    Size  Location     Type
    293 ;;		None
    294 ;; Auto vars:     Size  Location     Type
@@ -337,22 +337,22 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    320                           	callstack 0
    321  0007E0                     _UART_WaitForTxComplete:
    322                           	callstack 30
-   323  0007E0                     l19:
+   323  0007E0                     l44:
    324                           
-   325                           ;uartStructMain.c: 12:     while (!PIR1bits.TXIF) {
+   325                           ;uart.c: 27:     while (!PIR1bits.TXIF) {
    326  0007E0  A89E               	btfss	158,4,c	;volatile
-   327  0007E2  EFF5  F003         	goto	u41
-   328  0007E6  EFF7  F003         	goto	u40
-   329  0007EA                     u41:
-   330  0007EA  EFF0  F003         	goto	l19
-   331  0007EE                     u40:
+   327  0007E2  EFF5  F003         	goto	u91
+   328  0007E6  EFF7  F003         	goto	u90
+   329  0007EA                     u91:
+   330  0007EA  EFF0  F003         	goto	l44
+   331  0007EE                     u90:
    332  0007EE  0012               	return		;funcret
    333  0007F0                     __end_of_UART_WaitForTxComplete:
    334                           	callstack 0
    335                           
    336 ;; *************** function _UART_TransmitString *****************
    337 ;; Defined at:
-   338 ;;		line 17 in file "uartStructMain.c"
+   338 ;;		line 32 in file "uart.c"
    339 ;; Parameters:    Size  Location     Type
    340 ;;  data            2    0[COMRAM] PTR const unsigned char 
    341 ;;		 -> STR_1(15), 
@@ -386,19 +386,19 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    369  000724                     _UART_TransmitString:
    370                           	callstack 30
    371  000724                     
-   372                           ;uartStructMain.c: 18:     while (*data != '\0') {
-   373  000724  EFA4  F003         	goto	l820
-   374  000728                     l27:
+   372                           ;uart.c: 33:     while (*data != '\0') {
+   373  000724  EFA4  F003         	goto	l824
+   374  000728                     l52:
    375                           
-   376                           ;uartStructMain.c: 20:         while (!TXSTAbits.TRMT) {
+   376                           ;uart.c: 35:         while (!TXSTAbits.TRMT) {
    377  000728  A2AC               	btfss	172,1,c	;volatile
    378  00072A  EF99  F003         	goto	u151
    379  00072E  EF9B  F003         	goto	u150
    380  000732                     u151:
-   381  000732  EF94  F003         	goto	l27
+   381  000732  EF94  F003         	goto	l52
    382  000736                     u150:
    383  000736                     
-   384                           ;uartStructMain.c: 23:         TXREG = *data;
+   384                           ;uart.c: 38:         TXREG = *data;
    385  000736  C001  FFF6         	movff	UART_TransmitString@data,tblptrl
    386  00073A  C002  FFF7         	movff	UART_TransmitString@data+1,tblptrh
    387  00073E                     	if	0	;tblptru may be non-zero
@@ -408,12 +408,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    391  00073E  0008               	tblrd		*
    392  000740  CFF5 FFAD          	movff	tablat,4013	;volatile
    393  000744                     
-   394                           ;uartStructMain.c: 24:         data++;
+   394                           ;uart.c: 39:         data++;
    395  000744  4A01               	infsnz	UART_TransmitString@data^0,f,c
    396  000746  2A02               	incf	(UART_TransmitString@data+1)^0,f,c
-   397  000748                     l820:
+   397  000748                     l824:
    398                           
-   399                           ;uartStructMain.c: 18:     while (*data != '\0') {
+   399                           ;uart.c: 33:     while (*data != '\0') {
    400  000748  C001  FFF6         	movff	UART_TransmitString@data,tblptrl
    401  00074C  C002  FFF7         	movff	UART_TransmitString@data+1,tblptrh
    402  000750                     	if	0	;tblptru may be non-zero
@@ -427,7 +427,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    410  000758  EFB0  F003         	goto	u161
    411  00075C  EFB2  F003         	goto	u160
    412  000760                     u161:
-   413  000760  EF94  F003         	goto	l27
+   413  000760  EF94  F003         	goto	l52
    414  000764                     u160:
    415  000764  0012               	return		;funcret
    416  000766                     __end_of_UART_TransmitString:
@@ -552,26 +552,26 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    535  00062C  EF1A  F003         	goto	u121
    536  000630  EF1C  F003         	goto	u120
    537  000634                     u121:
-   538  000634  EF52  F003         	goto	l84
+   538  000634  EF52  F003         	goto	l86
    539  000638                     u120:
    540  000638  0E01               	movlw	1
    541  00063A  6E0D               	movwf	___lldiv@counter^0,c
-   542  00063C  EF26  F003         	goto	l800
-   543  000640                     l798:
+   542  00063C  EF26  F003         	goto	l802
+   543  000640                     l800:
    544  000640  90D8               	bcf	status,0,c
    545  000642  3605               	rlcf	___lldiv@divisor^0,f,c
    546  000644  3606               	rlcf	(___lldiv@divisor+1)^0,f,c
    547  000646  3607               	rlcf	(___lldiv@divisor+2)^0,f,c
    548  000648  3608               	rlcf	(___lldiv@divisor+3)^0,f,c
    549  00064A  2A0D               	incf	___lldiv@counter^0,f,c
-   550  00064C                     l800:
+   550  00064C                     l802:
    551  00064C  AE08               	btfss	(___lldiv@divisor+3)^0,7,c
    552  00064E  EF2B  F003         	goto	u131
    553  000652  EF2D  F003         	goto	u130
    554  000656                     u131:
-   555  000656  EF20  F003         	goto	l798
+   555  000656  EF20  F003         	goto	l800
    556  00065A                     u130:
-   557  00065A                     l802:
+   557  00065A                     l804:
    558  00065A  90D8               	bcf	status,0,c
    559  00065C  3609               	rlcf	___lldiv@quotient^0,f,c
    560  00065E  360A               	rlcf	(___lldiv@quotient+1)^0,f,c
@@ -589,7 +589,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    572  000676  EF3F  F003         	goto	u141
    573  00067A  EF41  F003         	goto	u140
    574  00067E                     u141:
-   575  00067E  EF4A  F003         	goto	l810
+   575  00067E  EF4A  F003         	goto	l812
    576  000682                     u140:
    577  000682  5005               	movf	___lldiv@divisor^0,w,c
    578  000684  5E01               	subwf	___lldiv@dividend^0,f,c
@@ -600,15 +600,15 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    583  00068E  5008               	movf	(___lldiv@divisor+3)^0,w,c
    584  000690  5A04               	subwfb	(___lldiv@dividend+3)^0,f,c
    585  000692  8009               	bsf	___lldiv@quotient^0,0,c
-   586  000694                     l810:
+   586  000694                     l812:
    587  000694  90D8               	bcf	status,0,c
    588  000696  3208               	rrcf	(___lldiv@divisor+3)^0,f,c
    589  000698  3207               	rrcf	(___lldiv@divisor+2)^0,f,c
    590  00069A  3206               	rrcf	(___lldiv@divisor+1)^0,f,c
    591  00069C  3205               	rrcf	___lldiv@divisor^0,f,c
    592  00069E  2E0D               	decfsz	___lldiv@counter^0,f,c
-   593  0006A0  EF2D  F003         	goto	l802
-   594  0006A4                     l84:
+   593  0006A0  EF2D  F003         	goto	l804
+   594  0006A4                     l86:
    595  0006A4  C009  F001         	movff	___lldiv@quotient,?___lldiv
    596  0006A8  C00A  F002         	movff	___lldiv@quotient+1,?___lldiv+1
    597  0006AC  C00B  F003         	movff	___lldiv@quotient+2,?___lldiv+2
@@ -658,30 +658,30 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    641  0007A8                     
    642                           ;uart.c: 12:     TXSTAbits.TXEN = config.txEnable;
    643  0007A8  A001               	btfss	UART_Config_TXSTA@config^0,0,c
-   644  0007AA  D002               	bra	u75
+   644  0007AA  D002               	bra	u45
    645  0007AC  8AAC               	bsf	172,5,c	;volatile
-   646  0007AE  D001               	bra	u77
-   647  0007B0                     u75:
+   646  0007AE  D001               	bra	u47
+   647  0007B0                     u45:
    648  0007B0  9AAC               	bcf	172,5,c	;volatile
-   649  0007B2                     u77:
+   649  0007B2                     u47:
    650                           
    651                           ;uart.c: 13:     TXSTAbits.SYNC = config.syncMode;
    652  0007B2  A201               	btfss	UART_Config_TXSTA@config^0,1,c
-   653  0007B4  D002               	bra	u85
+   653  0007B4  D002               	bra	u55
    654  0007B6  88AC               	bsf	172,4,c	;volatile
-   655  0007B8  D001               	bra	u87
-   656  0007BA                     u85:
+   655  0007B8  D001               	bra	u57
+   656  0007BA                     u55:
    657  0007BA  98AC               	bcf	172,4,c	;volatile
-   658  0007BC                     u87:
+   658  0007BC                     u57:
    659                           
    660                           ;uart.c: 14:     TXSTAbits.BRGH = config.highSpeed;
    661  0007BC  A401               	btfss	UART_Config_TXSTA@config^0,2,c
-   662  0007BE  D002               	bra	u95
+   662  0007BE  D002               	bra	u65
    663  0007C0  84AC               	bsf	172,2,c	;volatile
-   664  0007C2  D001               	bra	u97
-   665  0007C4                     u95:
+   664  0007C2  D001               	bra	u67
+   665  0007C4                     u65:
    666  0007C4  94AC               	bcf	172,2,c	;volatile
-   667  0007C6                     u97:
+   667  0007C6                     u67:
    668  0007C6  0012               	return		;funcret
    669  0007C8                     __end_of_UART_Config_TXSTA:
    670                           	callstack 0
@@ -727,21 +727,21 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    710  0007CA                     
    711                           ;uart.c: 20:     RCSTAbits.SPEN = config.SerialPortEnable;
    712  0007CA  A001               	btfss	UART_Config_RCSTA@config^0,0,c
-   713  0007CC  D002               	bra	u105
+   713  0007CC  D002               	bra	u75
    714  0007CE  8EAB               	bsf	171,7,c	;volatile
-   715  0007D0  D001               	bra	u107
-   716  0007D2                     u105:
+   715  0007D0  D001               	bra	u77
+   716  0007D2                     u75:
    717  0007D2  9EAB               	bcf	171,7,c	;volatile
-   718  0007D4                     u107:
+   718  0007D4                     u77:
    719                           
    720                           ;uart.c: 21:     RCSTAbits.CREN = config.continiousReciveEnable;
    721  0007D4  A201               	btfss	UART_Config_RCSTA@config^0,1,c
-   722  0007D6  D002               	bra	u115
+   722  0007D6  D002               	bra	u85
    723  0007D8  88AB               	bsf	171,4,c	;volatile
-   724  0007DA  D001               	bra	u117
-   725  0007DC                     u115:
+   724  0007DA  D001               	bra	u87
+   725  0007DC                     u85:
    726  0007DC  98AB               	bcf	171,4,c	;volatile
-   727  0007DE                     u117:
+   727  0007DE                     u87:
    728  0007DE  0012               	return		;funcret
    729  0007E0                     __end_of_UART_Config_RCSTA:
    730                           	callstack 0
@@ -1095,37 +1095,37 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Mon Nov 27 12:20:35 2023
+Symbol Table                                                                                   Mon Nov 27 12:26:09 2023
 
-                             l22 07EE                               l31 0764  
-                             l51 07C6                               l27 0728  
-                             l19 07E0                               l54 07DE  
-                             l48 07A4                               l91 06B4  
-                             l84 06A4                               u40 07EE  
-                             u41 07EA                               u75 07B0  
-                             u85 07BA                               u77 07B2  
-                             u95 07C4                               u87 07BC  
-                             u97 07C6                              l800 064C  
-                            l810 0694                              l802 065A  
-                            l812 069E                              l804 0664  
-                            l820 0748                              l806 0682  
-                            l822 0766                              l814 0724  
-                            l830 06BE                              l808 0692  
-                            l816 0736                              l752 07E0  
-                            l840 06E0                              l832 06C0  
-                            l824 06B6                              l762 07A8  
-                            l818 0744                              l842 06F4  
-                            l834 06C2                              l826 06BA  
-                            l764 07CA                              l844 06F8  
-                            l836 06C4                              l828 06BC  
-                            l846 0704                              l838 06CA  
-                            l792 0612                              l794 0622  
-                            l796 0638                              l798 0640  
-                            u120 0638                              u105 07D2  
-                            u121 0634                              u130 065A  
-                            u115 07DC                              u107 07D4  
-                            u131 0656                              u140 0682  
-                            u117 07DE                              u141 067E  
+                             l41 07DE                               l35 07A4  
+                             l52 0728                               l44 07E0  
+                             l38 07C6                               l47 07EE  
+                             l56 0764                               l93 06B4  
+                             l86 06A4                               u45 07B0  
+                             u55 07BA                               u47 07B2  
+                             u65 07C4                               u57 07BC  
+                             u90 07EE                               u75 07D2  
+                             u67 07C6                               u91 07EA  
+                             u85 07DC                               u77 07D4  
+                             u87 07DE                              l800 0640  
+                            l810 0692                              l802 064C  
+                            l812 0694                              l804 065A  
+                            l820 0736                              l814 069E  
+                            l806 0664                              l822 0744  
+                            l830 06BC                              l808 0682  
+                            l816 0766                              l824 0748  
+                            l760 07E0                              l840 06CA  
+                            l832 06BE                              l754 07A8  
+                            l818 0724                              l842 06E0  
+                            l834 06C0                              l826 06B6  
+                            l756 07CA                              l844 06F4  
+                            l836 06C2                              l828 06BA  
+                            l846 06F8                              l838 06C4  
+                            l848 0704                              l794 0612  
+                            l796 0622                              l798 0638  
+                            u120 0638                              u121 0634  
+                            u130 065A                              u131 0656  
+                            u140 0682                              u141 067E  
                             u150 0736                              u151 0732  
                             u160 0764                              u161 0760  
                             u177 070E                              wreg 000FE8  

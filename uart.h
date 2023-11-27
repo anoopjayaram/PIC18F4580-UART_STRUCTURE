@@ -59,6 +59,10 @@ void UART_Init(UART_Config config) ;
 void UART_Config_TXSTA(TXSTA_Config config);
 // Function to configure RCSTA using the structure
 void UART_Config_RCSTA(RCSTA_Config config) ;
+// Function to wait until TXIF flag is set
+void UART_WaitForTxComplete() ;
+// Function to transmit a string via UART
+void UART_TransmitString(const char* data) ;
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate

@@ -18012,6 +18012,10 @@ void UART_Init(UART_Config config) ;
 void UART_Config_TXSTA(TXSTA_Config config);
 
 void UART_Config_RCSTA(RCSTA_Config config) ;
+
+void UART_WaitForTxComplete() ;
+
+void UART_TransmitString(const char* data) ;
 # 1 "uart.c" 2
 
 
@@ -18036,4 +18040,21 @@ void UART_Config_RCSTA(RCSTA_Config config) {
     RCSTAbits.CREN = config.continiousReciveEnable;
 
 
+}
+
+void UART_WaitForTxComplete() {
+    while (!PIR1bits.TXIF) {
+        continue;
+    }
+}
+
+void UART_TransmitString(const char* data) {
+    while (*data != '\0') {
+
+        while (!TXSTAbits.TRMT) {
+            continue;
+        }
+        TXREG = *data;
+        data++;
+    }
 }

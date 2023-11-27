@@ -68,6 +68,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28821
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28821: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
 [v _RCSTAbits `VS927 ~T0 @X0 0 e@4011 ]
+"28033
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28033:     struct {
+[s S896 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S896 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
+"28043
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28043:     struct {
+[s S897 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S897 . . TX1IF RC1IF ]
+"28032
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28032: typedef union {
+[u S895 `S896 1 `S897 1 ]
+[n S895 . . . ]
+"28049
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28049: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS895 ~T0 @X0 0 e@3998 ]
+"29246
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 29246: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 55: __asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
@@ -1357,4 +1375,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [; ;uart.c: 24: }
 [e :UE 1093 ]
+}
+"26
+[; ;uart.c: 26: void UART_WaitForTxComplete() {
+[v _UART_WaitForTxComplete `(v ~T0 @X0 1 ef ]
+{
+[e :U _UART_WaitForTxComplete ]
+[f ]
+"27
+[; ;uart.c: 27:     while (!PIR1bits.TXIF) {
+[e $U 1095  ]
+[e :U 1096 ]
+{
+"28
+[; ;uart.c: 28:         continue;
+[e $U 1095  ]
+"29
+[; ;uart.c: 29:     }
+}
+[e :U 1095 ]
+"27
+[; ;uart.c: 27:     while (!PIR1bits.TXIF) {
+[e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 1096  ]
+[e :U 1097 ]
+"30
+[; ;uart.c: 30: }
+[e :UE 1094 ]
+}
+"32
+[; ;uart.c: 32: void UART_TransmitString(const char* data) {
+[v _UART_TransmitString `(v ~T0 @X0 1 ef1`*Cuc ]
+{
+[e :U _UART_TransmitString ]
+[v _data `*Cuc ~T0 @X0 1 r1 ]
+[f ]
+"33
+[; ;uart.c: 33:     while (*data != '\0') {
+[e $U 1099  ]
+[e :U 1100 ]
+{
+"35
+[; ;uart.c: 35:         while (!TXSTAbits.TRMT) {
+[e $U 1102  ]
+[e :U 1103 ]
+{
+"36
+[; ;uart.c: 36:             continue;
+[e $U 1102  ]
+"37
+[; ;uart.c: 37:         }
+}
+[e :U 1102 ]
+"35
+[; ;uart.c: 35:         while (!TXSTAbits.TRMT) {
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 1103  ]
+[e :U 1104 ]
+"38
+[; ;uart.c: 38:         TXREG = *data;
+[e = _TXREG -> *U _data `uc ]
+"39
+[; ;uart.c: 39:         data++;
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+"40
+[; ;uart.c: 40:     }
+}
+[e :U 1099 ]
+"33
+[; ;uart.c: 33:     while (*data != '\0') {
+[e $ != -> *U _data `ui -> 0 `ui 1100  ]
+[e :U 1101 ]
+"41
+[; ;uart.c: 41: }
+[e :UE 1098 ]
 }
