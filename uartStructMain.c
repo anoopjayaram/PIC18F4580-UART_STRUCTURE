@@ -70,7 +70,7 @@ void UART_TransmitString(const char* data) {
     }
 }
 void main() {
-     TRISC=0X00;
+    TRISC=0X00;
     TXSTA_Config txConfig; 
     txConfig.txEnable = 1; // Enable transmit
     txConfig.syncMode = 0; // Async mode
