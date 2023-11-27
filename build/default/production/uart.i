@@ -1,4 +1,4 @@
-# 1 "uartStructMain.c"
+# 1 "uart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,14 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "uartStructMain.c" 2
-
-
-
-
-
-
-
+# 1 "uart.c" 2
 # 1 "./uart.h" 1
 # 35 "./uart.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\pic18.h" 1 3
@@ -18019,59 +18012,28 @@ void UART_Init(UART_Config config) ;
 void UART_Config_TXSTA(TXSTA_Config config);
 
 void UART_Config_RCSTA(RCSTA_Config config) ;
-# 8 "uartStructMain.c" 2
+# 1 "uart.c" 2
 
 
 
-void UART_WaitForTxComplete() {
-    while (!PIR1bits.TXIF) {
-        continue;
-    }
+
+void UART_Init(UART_Config config) {
+
+    SPBRG = (20000000UL/(16* config.baud_rate)-1);
 }
 
-void UART_TransmitString(const char* data) {
-    while (*data != '\0') {
 
-        while (!TXSTAbits.TRMT) {
-            continue;
-        }
-        TXREG = *data;
-        data++;
-    }
+void UART_Config_TXSTA(TXSTA_Config config) {
+    TXSTAbits.TXEN = config.txEnable;
+    TXSTAbits.SYNC = config.syncMode;
+    TXSTAbits.BRGH = config.highSpeed;
+
 }
-void main() {
-     TRISC=0X00;
-    TXSTA_Config txConfig;
-    txConfig.txEnable = 1;
-    txConfig.syncMode = 0;
-    txConfig.highSpeed = 1;
-
-    RCSTA_Config rxConfig;
-    rxConfig.SerialPortEnable = 1;
-    rxConfig.continiousReciveEnable = 1;
 
 
-    UART_Config_TXSTA(txConfig);
-    UART_Config_RCSTA(rxConfig);
+void UART_Config_RCSTA(RCSTA_Config config) {
+    RCSTAbits.SPEN = config.SerialPortEnable;
+    RCSTAbits.CREN = config.continiousReciveEnable;
 
 
-    UART_Config uartConfig;
-    uartConfig.baud_rate = 9600UL;
-    uartConfig.data_bits = 8;
-    uartConfig.stop_bits = 1;
-
-
-    UART_Init(uartConfig);
-
-
-    while (1) {
-
-        UART_WaitForTxComplete();
-
-
-
-        UART_TransmitString("Hello World\r\n ");
-
-        _delay((unsigned long)((1000)*(20000000UL/4000.0)));
-    }
 }

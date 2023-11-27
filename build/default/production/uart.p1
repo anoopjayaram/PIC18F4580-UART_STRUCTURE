@@ -1,20 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"28033 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28033:     struct {
-[s S896 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S896 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
-"28043
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28043:     struct {
-[s S897 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S897 . . TX1IF RC1IF ]
-"28032
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28032: typedef union {
-[u S895 `S896 1 `S897 1 ]
-[n S895 . . . ]
-"28049
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28049: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS895 ~T0 @X0 0 e@3998 ]
-"29001
+"38 ./uart.h
+[; ;./uart.h: 38: typedef struct {
+[s S1088 `ui 1 `uc 1 `uc 1 ]
+[n S1088 . baud_rate data_bits stop_bits ]
+"29270 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 29270: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"45 ./uart.h
+[; ;./uart.h: 45: typedef struct {
+[s S1089 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1089 . txEnable syncMode highSpeed ]
+"29001 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 29001:     struct {
 [s S942 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S942 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
@@ -37,38 +33,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29029
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 29029: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0xFAC)));
 [v _TXSTAbits `VS941 ~T0 @X0 0 e@4012 ]
-"29246
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 29246: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
-[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-[p mainexit ]
-"27282
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 27282: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"45 ./uart.h
-[; ;./uart.h: 45: typedef struct {
-[s S1089 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1089 . txEnable syncMode highSpeed ]
-"51
+"51 ./uart.h
 [; ;./uart.h: 51: typedef struct {
 [s S1090 :1 `uc 1 :1 `uc 1 ]
 [n S1090 . SerialPortEnable continiousReciveEnable ]
-"59
-[; ;./uart.h: 59: void UART_Config_TXSTA(TXSTA_Config config);
-[v _UART_Config_TXSTA `(v ~T0 @X0 0 ef1`S1089 ]
-"61
-[; ;./uart.h: 61: void UART_Config_RCSTA(RCSTA_Config config) ;
-[v _UART_Config_RCSTA `(v ~T0 @X0 0 ef1`S1090 ]
-"38
-[; ;./uart.h: 38: typedef struct {
-[s S1088 `ui 1 `uc 1 `uc 1 ]
-[n S1088 . baud_rate data_bits stop_bits ]
-"58
-[; ;./uart.h: 58: void UART_Init(UART_Config config) ;
-[v _UART_Init `(v ~T0 @X0 0 ef1`S1088 ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:\Program Files\Microchip\xc8\v2.32\pic\include\builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
+"28791 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28791:     struct {
+[s S928 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S928 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"28801
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28801:     struct {
+[s S929 :3 `uc 1 :1 `uc 1 ]
+[n S929 . . ADEN ]
+"28805
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28805:     struct {
+[s S930 :5 `uc 1 :1 `uc 1 ]
+[n S930 . . SRENA ]
+"28809
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28809:     struct {
+[s S931 :6 `uc 1 :1 `uc 1 ]
+[n S931 . . RC8_9 ]
+"28813
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28813:     struct {
+[s S932 :6 `uc 1 :1 `uc 1 ]
+[n S932 . . RC9 ]
+"28817
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28817:     struct {
+[s S933 :1 `uc 1 ]
+[n S933 . RCD8 ]
+"28790
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28790: typedef union {
+[u S927 `S928 1 `S929 1 `S930 1 `S931 1 `S932 1 `S933 1 ]
+[n S927 . . . . . . . ]
+"28821
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 28821: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
+[v _RCSTAbits `VS927 ~T0 @X0 0 e@4011 ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 55: __asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
@@ -1308,151 +1307,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32465
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4580.h: 32465: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 uartStructMain.c
-[; ;uartStructMain.c: 11: void UART_WaitForTxComplete() {
-[v _UART_WaitForTxComplete `(v ~T0 @X0 1 ef ]
+"5 uart.c
+[; ;uart.c: 5: void UART_Init(UART_Config config) {
+[v _UART_Init `(v ~T0 @X0 1 ef1`S1088 ]
 {
-[e :U _UART_WaitForTxComplete ]
+[e :U _UART_Init ]
+[v _config `S1088 ~T0 @X0 1 r1 ]
 [f ]
-"12
-[; ;uartStructMain.c: 12:     while (!PIR1bits.TXIF) {
-[e $U 1092  ]
-[e :U 1093 ]
-{
-"13
-[; ;uartStructMain.c: 13:         continue;
-[e $U 1092  ]
-"14
-[; ;uartStructMain.c: 14:     }
-}
-[e :U 1092 ]
-"12
-[; ;uartStructMain.c: 12:     while (!PIR1bits.TXIF) {
-[e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 1093  ]
-[e :U 1094 ]
-"15
-[; ;uartStructMain.c: 15: }
+"7
+[; ;uart.c: 7:     SPBRG = (20000000UL/(16* config.baud_rate)-1);
+[e = _SPBRG -> - / -> 20000000 `ul -> * -> -> 16 `i `ui . _config 0 `ul -> -> -> 1 `i `l `ul `uc ]
+"8
+[; ;uart.c: 8: }
 [e :UE 1091 ]
 }
-"17
-[; ;uartStructMain.c: 17: void UART_TransmitString(const char* data) {
-[v _UART_TransmitString `(v ~T0 @X0 1 ef1`*Cuc ]
+"11
+[; ;uart.c: 11: void UART_Config_TXSTA(TXSTA_Config config) {
+[v _UART_Config_TXSTA `(v ~T0 @X0 1 ef1`S1089 ]
 {
-[e :U _UART_TransmitString ]
-[v _data `*Cuc ~T0 @X0 1 r1 ]
+[e :U _UART_Config_TXSTA ]
+[v _config `S1089 ~T0 @X0 1 r1 ]
 [f ]
-"18
-[; ;uartStructMain.c: 18:     while (*data != '\0') {
-[e $U 1096  ]
-[e :U 1097 ]
+"12
+[; ;uart.c: 12:     TXSTAbits.TXEN = config.txEnable;
+[e = . . _TXSTAbits 0 5 . _config 0 ]
+"13
+[; ;uart.c: 13:     TXSTAbits.SYNC = config.syncMode;
+[e = . . _TXSTAbits 0 4 . _config 1 ]
+"14
+[; ;uart.c: 14:     TXSTAbits.BRGH = config.highSpeed;
+[e = . . _TXSTAbits 0 2 . _config 2 ]
+"16
+[; ;uart.c: 16: }
+[e :UE 1092 ]
+}
+"19
+[; ;uart.c: 19: void UART_Config_RCSTA(RCSTA_Config config) {
+[v _UART_Config_RCSTA `(v ~T0 @X0 1 ef1`S1090 ]
 {
+[e :U _UART_Config_RCSTA ]
+[v _config `S1090 ~T0 @X0 1 r1 ]
+[f ]
 "20
-[; ;uartStructMain.c: 20:         while (!TXSTAbits.TRMT) {
-[e $U 1099  ]
-[e :U 1100 ]
-{
+[; ;uart.c: 20:     RCSTAbits.SPEN = config.SerialPortEnable;
+[e = . . _RCSTAbits 0 7 . _config 0 ]
 "21
-[; ;uartStructMain.c: 21:             continue;
-[e $U 1099  ]
-"22
-[; ;uartStructMain.c: 22:         }
-}
-[e :U 1099 ]
-"20
-[; ;uartStructMain.c: 20:         while (!TXSTAbits.TRMT) {
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 1100  ]
-[e :U 1101 ]
-"23
-[; ;uartStructMain.c: 23:         TXREG = *data;
-[e = _TXREG -> *U _data `uc ]
+[; ;uart.c: 21:     RCSTAbits.CREN = config.continiousReciveEnable;
+[e = . . _RCSTAbits 0 4 . _config 1 ]
 "24
-[; ;uartStructMain.c: 24:         data++;
-[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
-"25
-[; ;uartStructMain.c: 25:     }
+[; ;uart.c: 24: }
+[e :UE 1093 ]
 }
-[e :U 1096 ]
-"18
-[; ;uartStructMain.c: 18:     while (*data != '\0') {
-[e $ != -> *U _data `ui -> 0 `ui 1097  ]
-[e :U 1098 ]
-"26
-[; ;uartStructMain.c: 26: }
-[e :UE 1095 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"27
-[; ;uartStructMain.c: 27: void main() {
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"28
-[; ;uartStructMain.c: 28:      TRISC=0X00;
-[e = _TRISC -> -> 0 `i `uc ]
-"29
-[; ;uartStructMain.c: 29:     TXSTA_Config txConfig;
-[v _txConfig `S1089 ~T0 @X0 1 a ]
-"30
-[; ;uartStructMain.c: 30:     txConfig.txEnable = 1;
-[e = . _txConfig 0 -> -> 1 `i `uc ]
-"31
-[; ;uartStructMain.c: 31:     txConfig.syncMode = 0;
-[e = . _txConfig 1 -> -> 0 `i `uc ]
-"32
-[; ;uartStructMain.c: 32:     txConfig.highSpeed = 1;
-[e = . _txConfig 2 -> -> 1 `i `uc ]
-"34
-[; ;uartStructMain.c: 34:     RCSTA_Config rxConfig;
-[v _rxConfig `S1090 ~T0 @X0 1 a ]
-"35
-[; ;uartStructMain.c: 35:     rxConfig.SerialPortEnable = 1;
-[e = . _rxConfig 0 -> -> 1 `i `uc ]
-"36
-[; ;uartStructMain.c: 36:     rxConfig.continiousReciveEnable = 1;
-[e = . _rxConfig 1 -> -> 1 `i `uc ]
-"39
-[; ;uartStructMain.c: 39:     UART_Config_TXSTA(txConfig);
-[e ( _UART_Config_TXSTA (1 _txConfig ]
-"40
-[; ;uartStructMain.c: 40:     UART_Config_RCSTA(rxConfig);
-[e ( _UART_Config_RCSTA (1 _rxConfig ]
-"43
-[; ;uartStructMain.c: 43:     UART_Config uartConfig;
-[v _uartConfig `S1088 ~T0 @X0 1 a ]
-"44
-[; ;uartStructMain.c: 44:     uartConfig.baud_rate = 9600UL;
-[e = . _uartConfig 0 -> -> 9600 `ul `ui ]
-"45
-[; ;uartStructMain.c: 45:     uartConfig.data_bits = 8;
-[e = . _uartConfig 1 -> -> 8 `i `uc ]
-"46
-[; ;uartStructMain.c: 46:     uartConfig.stop_bits = 1;
-[e = . _uartConfig 2 -> -> 1 `i `uc ]
-"49
-[; ;uartStructMain.c: 49:     UART_Init(uartConfig);
-[e ( _UART_Init (1 _uartConfig ]
-"52
-[; ;uartStructMain.c: 52:     while (1) {
-[e :U 1104 ]
-{
-"54
-[; ;uartStructMain.c: 54:         UART_WaitForTxComplete();
-[e ( _UART_WaitForTxComplete ..  ]
-"58
-[; ;uartStructMain.c: 58:         UART_TransmitString("Hello World\r\n ");
-[e ( _UART_TransmitString (1 :s 1C ]
-"60
-[; ;uartStructMain.c: 60:         _delay((unsigned long)((1000)*(20000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"61
-[; ;uartStructMain.c: 61:     }
-}
-[e :U 1103 ]
-[e $U 1104  ]
-[e :U 1105 ]
-"62
-[; ;uartStructMain.c: 62: }
-[e :UE 1102 ]
-}
-[a 1C 72 101 108 108 111 32 87 111 114 108 100 13 10 32 0 ]

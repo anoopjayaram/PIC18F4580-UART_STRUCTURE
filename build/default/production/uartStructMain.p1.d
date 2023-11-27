@@ -1,2 +1,3 @@
 build/default/production/uartStructMain.p1:  \
-uartStructMain.c 
+uartStructMain.c  \
+uart.h 
